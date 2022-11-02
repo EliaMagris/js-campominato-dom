@@ -18,10 +18,7 @@ function startGame() {
 
     return item;
   }
-
   let arrayRandom = [];
-
-  arrayRandom.innerHTML = '';
 
   for (let x = 1; x <= 16; x++) {
     let randomNumber = Math.floor(Math.random(1) * Number);
@@ -37,15 +34,48 @@ function startGame() {
 
   for (let i = 0; i < Number; i++) {
     let quadrato = GridElement();
+    let innerNumber = i + 1;
+    quadrato.innerText = innerNumber;
 
-    quadrato.addEventListener('click', function () {
-      console.log(this);
-      this.classList.toggle('active');
-    });
-
-    quadrato.innerText = i + 1;
     console.log(quadrato);
+
+    if (arrayRandom.includes(innerNumber)) {
+      quadrato.addEventListener('click', function () {
+        console.log(this);
+        this.classList.toggle('destroy');
+      });
+    } else {
+      quadrato.addEventListener('click', function () {
+        console.log(this);
+        this.classList.toggle('active');
+      });
+    }
 
     griglia.append(quadrato);
   }
+
+// METODO ERRATO
+
+// for (let i = 0; i < Number; i++) {
+//   let quadrato = GridElement();
+//   let innerNumber = i + 1;
+
+//   quadrato.innerText = innerNumber;
+
+//   console.log(quadrato);
+//   console.log(innerNumber);
+
+//   let classToToggle = 'active';
+
+//   if (arrayRandom.includes(innerNumber)) {
+//     classToToggle = 'destroy';
+//   }
+
+//   quadrato.addEventListener("click", function () {
+//     console.log(this);
+//     this.classList.toggle(classToToggle);
+//   });
+
+//   griglia.append(quadrato);
+// } 
 }
