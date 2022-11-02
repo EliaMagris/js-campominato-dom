@@ -77,18 +77,16 @@ function startGame() {
       console.log(this);
       this.classList.toggle(classToToggle);
       counterNum += 1;
-      if ((classToToggle == 'active')) {
+      if (classToToggle == 'active') {
         document.getElementById('counter').innerHTML = `il tuo punteggio è : ${counterNum}`;
       } else {
-        document.getElementById('counter').innerHTML = `il tuo punteggio è : ${counterNum - 1} FINE PARTITA`;
+        document.getElementById('counter').innerHTML = `il tuo punteggio finale è : ${counterNum - 1}`;
         alert('HAI PERSO');
         counterNum = 0;
-        griglia.innerHTML = "";
+        //griglia.innerHTML = '';
       }
     });
 
-  
-    
     griglia.append(quadrato);
   }
 }
