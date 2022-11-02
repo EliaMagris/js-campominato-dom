@@ -15,6 +15,7 @@ header{
 
 main{
     height: 85%;
+    padding-top: 50px;
 }
 
 footer{
@@ -22,9 +23,13 @@ footer{
 }
 
 #griglia{
-    width: 40%;
+    width: 35%;
     margin: auto;
-    height: 100%;
+}
+
+#counter{
+    text-align: center;
+    padding-top: 25px;
 }
 
 .quadratobase{

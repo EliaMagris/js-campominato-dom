@@ -32,50 +32,63 @@ function startGame() {
 
   console.log(arrayRandom);
 
+  // for (let i = 0; i < Number; i++) {
+  //   let quadrato = GridElement();
+  //   let innerNumber = i + 1;
+  //   quadrato.innerText = innerNumber;
+
+  //   console.log(quadrato);
+
+  //   if (arrayRandom.includes(innerNumber)) {
+  //     quadrato.addEventListener('click', function () {
+  //       console.log(this);
+  //       this.classList.toggle('destroy');
+  //     });
+
+  //   } else {
+  //     quadrato.addEventListener('click', function () {
+  //       console.log(this);
+  //       this.classList.toggle('active');
+  //     });
+  //   }
+
+  //   griglia.append(quadrato);
+  // }
+
+  // METODO RIPETITIVO
+
   for (let i = 0; i < Number; i++) {
     let quadrato = GridElement();
     let innerNumber = i + 1;
+
     quadrato.innerText = innerNumber;
 
     console.log(quadrato);
+    console.log(innerNumber);
+
+    let classToToggle = 'active';
 
     if (arrayRandom.includes(innerNumber)) {
-      quadrato.addEventListener('click', function () {
-        console.log(this);
-        this.classList.toggle('destroy');
-      });
-    } else {
-      quadrato.addEventListener('click', function () {
-        console.log(this);
-        this.classList.toggle('active');
-      });
+      classToToggle = 'destroy';
     }
 
+    var counterNum = 0;
+    quadrato.addEventListener('click', function () {
+      console.log(this);
+      this.classList.toggle(classToToggle);
+      counterNum += 1;
+      if ((classToToggle == 'active')) {
+        document.getElementById('counter').innerHTML = `il tuo punteggio è : ${counterNum}`;
+      } else {
+        document.getElementById('counter').innerHTML = `il tuo punteggio è : ${counterNum - 1} FINE PARTITA`;
+        alert('HAI PERSO');
+        counterNum = 0;
+        griglia.innerHTML = "";
+      }
+    });
+
+  
+    
     griglia.append(quadrato);
   }
-
-// METODO ERRATO
-
-// for (let i = 0; i < Number; i++) {
-//   let quadrato = GridElement();
-//   let innerNumber = i + 1;
-
-//   quadrato.innerText = innerNumber;
-
-//   console.log(quadrato);
-//   console.log(innerNumber);
-
-//   let classToToggle = 'active';
-
-//   if (arrayRandom.includes(innerNumber)) {
-//     classToToggle = 'destroy';
-//   }
-
-//   quadrato.addEventListener("click", function () {
-//     console.log(this);
-//     this.classList.toggle(classToToggle);
-//   });
-
-//   griglia.append(quadrato);
-// } 
 }
